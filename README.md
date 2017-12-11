@@ -114,11 +114,20 @@ La commande sed peut utiliser des regexp.
 * sed -e '4d; 7d' test.txt => va effacer toutes les lignes entre la ligne 4 et 7, le e pour plusieurs arguments.
 * sed '/^#/ d' test.txt => Supprimera toutes les lignes commençant une un '#'*
 * sed -n '/Ici/p' test.txt => N'affichera que les lignes qui contiennent 'Ici'
-* 
 
 
+**La commande grep**
 
+Son point fort : La recherche plein texte.
 
+* grep texte nomfichier : Va afficher toutes les lignes qui comportent le mot "texte" dans le fichier nomfichier.
+* grep tient compte de la casse, on peut utiliser -i pour ignorer la casse
+*  On peut utiliser -n pour connaitre les numéros de lignes
+* -v permet de connaître toutes les lignes qui ne contiennent pas un mot donné.
+*  -r , on l'utilise dans un répertoire, et il va aller chercher dans tout les fichiers.
+*  On utilise -E pour utiliser une expression régulière ou egrep
+	* $ grep -E ^Alias .bashrc
+	* $egrep ^Alias .bashrc
 
 
 
