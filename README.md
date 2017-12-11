@@ -55,6 +55,8 @@ Réalisation
 
 ### **Les expressions régulières :**
 
+**Histoire : ** Issus de théories mathématiques des langages formels[informatique] (Stephen Cole Kleene [ensembles réguliers, de langages rationnels]) dans les années 1940, on les utilise aujourd'hui pour programmer des logiciels avec des fonctionnalités de lecture, contrôle, modification, analyse de texte.  C'est lors de l'aparition de commandes comme grep, que regexp à pris tout son sens ,et est devenu une norme pour tout les langages.
+
 Ce sont des pattern décrivant un certain montant de texte, leur nom viens d'une théorie mathématique sur laquelle elles sont basées. 
 "regex" (contraction de regular expression), et "regexp" sont des diminutifs.
 ça constitue un système très puissant et très rapide pour faire des recherches dans des chaînes de caractères (comme des phrases). Ça permet ainsi de faire des rechercher/remplacer très poussée.
@@ -66,8 +68,7 @@ Il existe deux types d'expressions régulières :
 
 On les retrouves dans de nombreux langages comme du PHP, MySQL, Javascript...
 
-Un regex est toujours entouré par un délimiteur **'#'** en vue que l'on peut mettre des options juste après.
-
+* Un regex est toujours entouré par un délimiteur **'#'** en vue que l'on peut mettre des options juste après.
 * Pour rechercher un mot depuis le début, on utilise **'^'** au début de notre mot
 * Pour rechercher un mot depuis la fin, on utilise **'$'** à la fin de notre mot
 * Pour rechercher l'un ou l'autre, on rajoute un pipe **'|'**
@@ -80,6 +81,15 @@ Un regex est toujours entouré par un délimiteur **'#'** en vue que l'on peut m
 	* \d = [0-9]
 	* \n = retour à la ligne
 	* \t = tabulation
+* On a également des quantificateurs : ma [a-z] [a-z] == ma [a-z] {2} == ma suivit de deux lettres
+	* {min,max}
+	* {min,}
+	* {max,}
+	* {nombre}
+	* '*' == {0,}
+	* '+' == {1,}
+	* '?' == {,1}
+* On peut échapper les caractères spéciaux à l'aide du **'\'**
 
-
+* En PHP, on retrouve la fonction preg_match qui prends deux paramètres, et renvois un booléen. Dans le premier paramètre, on y met notre regexp, et dans le second notre chaîne.
 
