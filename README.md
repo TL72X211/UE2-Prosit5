@@ -42,11 +42,13 @@
   - Il existe plusieurs types d'expressions régulières (simples et étendues)
  
 * Plan d'action:
+
 Etude:
   - Expressions régulières(fonctionnement, histoire, syntaxe, construction)
   - commande sed/grep
   - Redirection de flux (">", "<", ...)
   - Utilisation dans les différents langages
+  
 Réalisation
   - Corbeille
   - Script
