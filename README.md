@@ -55,7 +55,7 @@ Réalisation
 
 ### **Les expressions régulières :**
 
-**Histoire : ** Issus de théories mathématiques des langages formels[informatique] (Stephen Cole Kleene [ensembles réguliers, de langages rationnels]) dans les années 1940, on les utilise aujourd'hui pour programmer des logiciels avec des fonctionnalités de lecture, contrôle, modification, analyse de texte.  C'est lors de l'aparition de commandes comme grep, que regexp à pris tout son sens ,et est devenu une norme pour tout les langages.
+**Histoire :** Issus de théories mathématiques des langages formels[informatique] (Stephen Cole Kleene [ensembles réguliers, de langages rationnels]) dans les années 1940, on les utilise aujourd'hui pour programmer des logiciels avec des fonctionnalités de lecture, contrôle, modification, analyse de texte.  C'est lors de l'aparition de commandes comme grep, que regexp à pris tout son sens ,et est devenu une norme pour tout les langages.
 
 Ce sont des pattern décrivant un certain montant de texte, leur nom viens d'une théorie mathématique sur laquelle elles sont basées. 
 "regex" (contraction de regular expression), et "regexp" sont des diminutifs.
@@ -92,4 +92,33 @@ On les retrouves dans de nombreux langages comme du PHP, MySQL, Javascript...
 * On peut échapper les caractères spéciaux à l'aide du **'\'**
 
 * En PHP, on retrouve la fonction preg_match qui prends deux paramètres, et renvois un booléen. Dans le premier paramètre, on y met notre regexp, et dans le second notre chaîne.
+
+### **Commandes sed/grep :**
+
+https://doc.ubuntu-fr.org/sed
+
+**sed et cut** (Stream Editor ou éditeur de flux) permettent de modifier ou de supprimer une partie d'une chaîne de caractère, par exemple, remplacer un caractère par un autre dans un fichier, ou de supprimer des chaînes de caractère inutile. 
+La commande sed peut utiliser des regexp.
+
+**Synthaxe globale :**
+
+* Synthaxe pour remplacer : 
+
+ "s/[occurrence_cherchée]/[occurrence_de_substitution]/[comportement]" 
+	 *par défaut, elle s’effectue sur la première occurrence du motif sauf si dans commande, on lui ajoute un comportement (exemple : 2 pour deuxième occurrence).
+
+* Méthode classique : un flux d'entrée, et un flux de sortie (on récupère sur un fichier, et on le met sur un autre)
+* Méthode directe : sed -i : applique directement sur le fichier passé en entrée
+* sed ' ' [nomfichier.txt] => Renvois le contenu du fichier
+* d pour delete
+* sed -e '4d; 7d' test.txt => va effacer toutes les lignes entre la ligne 4 et 7, le e pour plusieurs arguments.
+* sed '/^#/ d' test.txt => Supprimera toutes les lignes commençant une un '#'*
+* sed -n '/Ici/p' test.txt => N'affichera que les lignes qui contiennent 'Ici'
+* 
+
+
+
+
+
+
 
