@@ -1,4 +1,4 @@
-# UE2-Prosit5
+# UE2-Prosit5-Expression-Régulière
 
 * Mots clés:
 - Expression régulière
