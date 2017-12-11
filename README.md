@@ -130,4 +130,6 @@ Son point fort : La recherche plein texte.
 	* $egrep ^Alias .bashrc
 
 
+**Points importants**
+![](https://github.com/TL72X211/UE2-Prosit5/blob/Emilien/expr_reg_emilien.PNG)
 
