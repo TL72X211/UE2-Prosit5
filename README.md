@@ -131,7 +131,9 @@ Son point fort : La recherche plein texte.
 *  On utilise -E pour utiliser une expression régulière ou egrep
 	* $ grep -E ^Alias .bashrc
 	* $egrep ^Alias .bashrc
-	* \\!/ egrep ne prends pas les raccourcis sous terminal
+	* \\!/ egrep ne prends pas les raccourcis sous terminal sauf si on met des guillemets
+	* Les guillements permettent d'empêcher l'utilisation des \
+	* [:alnum:] == \w en bash (plus d'infos : http://web.mit.edu/gnu/doc/html/regex_3.html)
 
 
 **Points importants**
@@ -184,19 +186,43 @@ Il est possible de rediriger les résultats de commandes, au lieu qu'il s'affich
 Trouver une expression régulière qui correspond à un nombre présent à la fin
 d'une ligne : 
 
- * $ root@emilien-LAMP:/# egrep -o --color [0-9]\$ trace.txt$
+ *  root@emilien-LAMP:/# egrep -o --color [0-9]\$ trace.txt
 
 Trouver une expression régulière qui correspond à des noms de fichiers avec une extension"jpg" :
 
-* $ root@emilien-LAMP:/# ls | egrep .jpg $
+*  root@emilien-LAMP:/# ls | egrep .jpg 
 
 Trouver une expression régulière qui trouve tous les mots de 4 caractères :
 
 *  egrep  --color ^[a-z]\{4\}[^a-z] trace.txt 
-
 Trouver une expression régulière permettant de reconnaitre une adresse IPV4 :
 
 ![](https://github.com/TL72X211/UE2-Prosit5/blob/Emilien/Screens_Prosit/ipv4.PNG)
+
+**nb :** On peut factoriser [0-1][0-9][0-9] => 1[0-9]{2}
+
+Trouver une expression régulière permettant de reconnaître toutes les dates suivantes {...} :
+
+root@emilien-LAMP:/# egrep --color '([0-9][0-9]?(/|-| |\.)){2}[0-9]{4}' trace.txt
+01/08/1993
+2-09-2022
+06 2 1965
+15.02.1985
+
+Trouver une expression régulière permettant de reconnaître une @email :
+root@emilien-LAMP:/# egrep --color '[[:alnum:]\._-]+@\w+.[a-z]{2,}' trace.txt
+couscous31@yahoo.fr
+praline44@joris.gouv
+david.trimoulet@viacesi.fr
+gilly-cousous@gilly.com
+gillllly_groscouscous@kfc.com
+
+
+
+
+
+
+
 
 
 
