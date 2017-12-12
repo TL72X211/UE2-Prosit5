@@ -203,19 +203,58 @@ Trouver une expression régulière permettant de reconnaitre une adresse IPV4 :
 
 Trouver une expression régulière permettant de reconnaître toutes les dates suivantes {...} :
 
-root@emilien-LAMP:/# egrep --color '([0-9][0-9]?(/|-| |\.)){2}[0-9]{4}' trace.txt
+* root@emilien-LAMP:/# egrep --color '([0-9][0-9]?(/|-| |\.)){2}[0-9]{4}' trace.txt
 01/08/1993
 2-09-2022
 06 2 1965
 15.02.1985
 
 Trouver une expression régulière permettant de reconnaître une @email :
-root@emilien-LAMP:/# egrep --color '[[:alnum:]\._-]+@\w+.[a-z]{2,}' trace.txt
+
+* root@emilien-LAMP:/# egrep --color '[[:alnum:]\._-]+@\w+.[a-z]{2,}' trace.txt
 couscous31@yahoo.fr
 praline44@joris.gouv
 david.trimoulet@viacesi.fr
 gilly-cousous@gilly.com
 gillllly_groscouscous@kfc.com
+
+
+
+**SED**
+
+Créer un fichier passwd_numéro qui va contenir le contenu de /etc/passwd avec son numéro de ligne :
+
+* grep -n '\w' /etc/passwd > passwd_numero
+
+N'afficher que les lignes contenant la chaîne bash dans /etc/passwd :
+
+* root@emilien-LAMP:/# grep bash /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+zelra:x:1000:1000:zelra,,,:/home/zelra:/bin/bash
+
+N'afficher que les lignes où un chemin vers /home apparaît dans le champ destiné à définir le répertoire principal de l'utilisateur dans /etc/passwd :
+
+* root@emilien-LAMP:/# grep '/home' /etc/passwd
+
+N'afficher que les lignes du fichier /etc/passwd pour lesquelles l'interpréteur de commandes n'est pas bash :
+
+* root@emilien-LAMP:/# grep -v /bash /etc/passwd | egrep /bin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+systemd-timesync:x:100:103:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:104:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:105:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+systemd-bus-proxy:x:103:106:systemd Bus Proxy,,,:/run/systemd:/bin/false
+Debian-exim:x:104:109::/var/spool/exim4:/bin/false
+messagebus:x:105:110::/var/run/dbus:/bin/false
+statd:x:106:65534::/var/lib/nfs:/bin/false
+bind:x:108:113::/var/cache/bind:/bin/false
+
+**SED**
+
+Remplacer HTTP par HTTPS dans les lignes 4 à 12 dans le fichier.log
+1) sed -i 's/http/https/g' fichier.log [incomplète, il manque 4 à 12]
 
 
 
