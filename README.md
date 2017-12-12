@@ -131,5 +131,46 @@ Son point fort : La recherche plein texte.
 
 
 **Points importants**
+
 ![](https://github.com/TL72X211/UE2-Prosit5/blob/Emilien/expr_reg_emilien.PNG)
 
+
+### **Les redirections de flux :**
+
+Il est possible de rediriger les résultats de commandes, au lieu qu'il s'affiche dans la console, il peut s'afficher dans un fichier texte, ou en entrée d'une autre commande (chaîne de commandes).
+
+**Rediriger les sorties**
+
+* **>** = rediriger vers un nouveau fichier
+*  **>>** = rediriger à la fin d'un fichier (très utiles pour les logs)
+* \\!/ pour les deux commandes ci dessus, les erreurs sont quand même affichés dans la console.
+	* Pour enregistrer les erreurs dans un fichier à part, on utilise l'opérateur **2>**
+	*  EX: cut -d , -f 1 fichier_inexistant.csv > eleves.txt 2> erreurs.log
+	*  On peut aussi utiliser **2>>** sur le même principe.
+*  On peut fusionner les sorties à l'aide de **2>$1**
+	*  Tout ira (les erreurs comprises) dans le fichier nominé, c'est le désigner comme la sortie standart
+	*  **2>>$1** NE MARCHE PAS.
+	*  Très utile pour les fichiers d'erreurs
+
+**Rediriger les entrées**
+
+* **<** Permet de lire depuis un fichier, c'est à dire qu'on va modifier l'entrée.
+	* cat < notes.csv => Va afficher le contenu du fichier envoyé en entrée, cat va recevoir les entrées de notes.csv
+
+* **<<** permet d'envoyer un contenu à une commande avec notre clavier.
+	* Exemple : sort -n << FIN : La console va nous demander de taper du texte, on pourra y rentrer le nombre de valeurs que l'on souhaite jusqu'à ce qu'on écrive "FIN". 
+	* Exemple 2 : wc -m << FIN : On rentre une chaîne de caractères, puis on appui sur Entrée pour revenir à la ligne, on tape FIN. Le résultat va être le nombre de caractères de la chaîne que l'on vient de rentrer.
+	* Le mot "FIN" n'est pas obligatoire ,on peut le remplasser par ce que l'on veut.
+	
+**Chaîne de commandes**
+
+* On utilise le pipe **|** pour chaîner plusieurs commandes, c'est à dire que tout ce qui va sortir de la commande 1 sera immédiatement envoyé dans la commande 2.
+	* **Exemple** : Si on veut récupérer les noms, et les trier :
+		* $ _cut -d , -f 1 notes.csv | sort_
+	* **Exemple 2** : Trier par taille :
+		* $ _du | sort -nr_
+	* **Exemple 3** : Chaîne de trois commandes, avec head (filtrer les premières lignes) :
+		* $ _du | sort -nr | head_
+	* **Exemple 4** : Lister tous les fichiers contenant le mot "log" dans /var/log ( -I permet d'exclure les fichiers binaires), y extraire les noms de fichiers, trier les noms de fichier, supprimer les doublons  :
+		* _$ sudo grep log -Ir /var/log  | cut -d : -f 1  | sort | uniq_
+	
