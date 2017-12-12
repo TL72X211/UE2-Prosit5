@@ -131,6 +131,7 @@ Son point fort : La recherche plein texte.
 *  On utilise -E pour utiliser une expression régulière ou egrep
 	* $ grep -E ^Alias .bashrc
 	* $egrep ^Alias .bashrc
+	* \\!/ egrep ne prends pas les raccourcis sous terminal
 
 
 **Points importants**
@@ -179,3 +180,23 @@ Il est possible de rediriger les résultats de commandes, au lieu qu'il s'affich
 	
 
 ### **Corbeille d'exercice :**
+
+Trouver une expression régulière qui correspond à un nombre présent à la fin
+d'une ligne : 
+
+ * $ root@emilien-LAMP:/# egrep -o --color [0-9]\$ trace.txt$
+
+Trouver une expression régulière qui correspond à des noms de fichiers avec une extension"jpg" :
+
+* $ root@emilien-LAMP:/# ls | egrep .jpg $
+
+Trouver une expression régulière qui trouve tous les mots de 4 caractères :
+
+*  egrep  --color ^[a-z]\{4\}[^a-z] trace.txt 
+
+Trouver une expression régulière permettant de reconnaitre une adresse IPV4
+
+
+
+
+
