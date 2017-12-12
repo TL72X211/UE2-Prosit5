@@ -55,9 +55,12 @@ Réalisation
 
 ### **Les expressions régulières :**
 
-**Histoire :** Issus de théories mathématiques des langages formels[informatique] (Stephen Cole Kleene [ensembles réguliers, de langages rationnels]) dans les années 1940, on les utilise aujourd'hui pour programmer des logiciels avec des fonctionnalités de lecture, contrôle, modification, analyse de texte.  C'est lors de l'aparition de commandes comme grep, que regexp à pris tout son sens ,et est devenu une norme pour tout les langages.
+**Histoire :**  C'est en 1940 que Stephen Stephen Cole Kleene qui travaillait sur ensembles réguliers de langages rationnels, l'a développé.
+La notion a été réintroduite plus tard en tant que langage formel en informatique.
+On les utilise aujourd'hui pour programmer des logiciels avec des fonctionnalités de lecture, contrôle, modification, analyse de texte.  C'est lors de l'apparition de commandes comme grep, que regexp à pris tout son sens ,et est devenu une norme pour tout les langages.
 
-Ce sont des pattern décrivant un certain montant de texte, leur nom viens d'une théorie mathématique sur laquelle elles sont basées. 
+Ce sont des patterns pouvant décrire un contenu de texte.
+
 "regex" (contraction de regular expression), et "regexp" sont des diminutifs.
 ça constitue un système très puissant et très rapide pour faire des recherches dans des chaînes de caractères (comme des phrases). Ça permet ainsi de faire des rechercher/remplacer très poussée.
 
@@ -174,3 +177,5 @@ Il est possible de rediriger les résultats de commandes, au lieu qu'il s'affich
 	* **Exemple 4** : Lister tous les fichiers contenant le mot "log" dans /var/log ( -I permet d'exclure les fichiers binaires), y extraire les noms de fichiers, trier les noms de fichier, supprimer les doublons  :
 		* _$ sudo grep log -Ir /var/log  | cut -d : -f 1  | sort | uniq_
 	
+
+### **Corbeille d'exercice :**
