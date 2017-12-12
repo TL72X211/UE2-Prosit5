@@ -112,15 +112,68 @@ Grep : permet d’obtenir les lignes auxquelles la regex est valide
 Options : 
 -e MOTIF utilise MOTIF 
 -f FICHIER lis les motifs dans le fichier
--c affiche le numéro des lignes auquelles le motif corrsponds
+-c affiche le numéro des lignes auxquelles le motif corresponds
 -o affiche uniquement la partie répondant à la regex
 --color affiche en couleur ce qui réponds au regex
+-n écris ‘numéroLigne :ligne’
+-nC affiche le numéro de la gine comme n et les lignes de contexte avec numLigne-ligne
+-w n’affiche que le mot exact et pas les variantes
+-i ignore la case
 -A N affiche les N lignes qui suivent celle contenant le motif
 -B N affiche les N lignes qui précèdent celle qui contient le motif
 -C N affiche 4 lignes de contexte 
-  - Redirection de flux (">", "<", ...)
-  - Utilisation dans les différents langages
-  
+- Redirection de flux (">", "<", ...)
+- Utilisation dans les différents langages
+
+Pour éviter d’avoir a escape tous les caractères spéciaux on peut mettre notre regex entre simple quotes
+La syntaxe est similaire à celle vu précédement
+alnum
+letters and digits
+alpha
+letters
+blank
+system-dependent; for GNU, a space or tab
+cntrl
+control characters (in the ASCII encoding, code 0177 and codes less than 040)
+digit
+digits
+graph
+same as print except omits space
+lower
+lowercase letters
+print
+printable characters (in the ASCII encoding, space tilde--codes 040 through 0176)
+punct
+neither control nor alphanumeric characters
+space
+space, carriage return, newline, vertical tab, and form feed
+upper
+uppercase letters
+xdigit
+hexadecimal digits: 0--9, a--f, A--F
+
+redirection
+  >
+Save output to a file.
+>>
+Append output to a file.
+<
+Read input from a file.
+2>
+Redirect error messages.
+|
+Send the output from one program as input to another program.
+
+**SED**
+Stream editor (ctrl+h)
+
+substitution
+Sed s/[regex][remplacement] [fichier]
+Ou sed -e s/[regex][remplacement] [fichier]
+
+Négation avec !
+Supression d
+Pour les lignes on les donnent au début  debut,fin
 Réalisation
   - Corbeille
 
@@ -141,11 +194,21 @@ Trouver une expression régulière permettant de reconnaitre une adresse IPv4.
 ((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)
 Prends 250-255, 249-200 0-199 suivi d’un . 3 fois et sans point une 4eme il doit y avoir plus propre mais je n’ai pas trouvé mieux
 Trouver une expression régulière permettant de reconnaître une adresse e-mail (pour information, la RFC 822 http://www.w3.org/Protocols/rfc822/ )
-[\w.]+@[\w]+\.[a-zA-Z]{2,}
+[\w.]+@[\w]+\.[A-z]{2,}
   - Script
 GREP 
 Sous Linux, donnez et testez une ligne de commande utilisant grep permettant : 
 • De créer un fichier passwd_numero contenant le contenu de chaque ligne du fichier /etc/passwd précédée de son numéro de ligne. 
+grep --color -n '.' /etc/passwd  > pass.txt
 • De n’afficher que les lignes contenant la chaîne bash dans /etc/passwd. 
+grep bash /etc/passwd
 • De n’afficher que les lignes où un chemin vers /home apparaît dans le champ destiné à définir le répertoire principal de l’utilisateur dans /etc/passwd. 
+grep  '/home' /etc/passwd
 • De n’afficher que les lignes du fichier /etc/passwd pour lesquelles l’interpréteur de commandes n’est pas le bash.
+grep -v 'bash' /etc/passwd | grep --color '/bin/' /etc/passwd
+
+
+
+Biblio :
+http://web.mit.edu/gnu/doc/html/regex_3.html
+
