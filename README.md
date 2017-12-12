@@ -194,7 +194,9 @@ Trouver une expression régulière qui trouve tous les mots de 4 caractères :
 
 *  egrep  --color ^[a-z]\{4\}[^a-z] trace.txt 
 
-Trouver une expression régulière permettant de reconnaitre une adresse IPV4
+Trouver une expression régulière permettant de reconnaitre une adresse IPV4 :
+
+![](https://github.com/TL72X211/UE2-Prosit5/blob/Emilien/Screens_Prosit/ipv4.PNG)
 
 
 
