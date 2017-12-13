@@ -220,7 +220,7 @@ gillllly_groscouscous@kfc.com
 
 
 
-**SED**
+**GREP**
 
 Créer un fichier passwd_numéro qui va contenir le contenu de /etc/passwd avec son numéro de ligne :
 
@@ -229,8 +229,6 @@ Créer un fichier passwd_numéro qui va contenir le contenu de /etc/passwd avec 
 N'afficher que les lignes contenant la chaîne bash dans /etc/passwd :
 
 * root@emilien-LAMP:/# grep bash /etc/passwd
-root:x:0:0:root:/root:/bin/bash
-zelra:x:1000:1000:zelra,,,:/home/zelra:/bin/bash
 
 N'afficher que les lignes où un chemin vers /home apparaît dans le champ destiné à définir le répertoire principal de l'utilisateur dans /etc/passwd :
 
@@ -239,17 +237,6 @@ N'afficher que les lignes où un chemin vers /home apparaît dans le champ desti
 N'afficher que les lignes du fichier /etc/passwd pour lesquelles l'interpréteur de commandes n'est pas bash :
 
 * root@emilien-LAMP:/# grep -v /bash /etc/passwd | egrep /bin
-bin:x:2:2:bin:/bin:/usr/sbin/nologin
-sync:x:4:65534:sync:/bin:/bin/sync
-proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
-systemd-timesync:x:100:103:systemd Time Synchronization,,,:/run/systemd:/bin/false
-systemd-network:x:101:104:systemd Network Management,,,:/run/systemd/netif:/bin/false
-systemd-resolve:x:102:105:systemd Resolver,,,:/run/systemd/resolve:/bin/false
-systemd-bus-proxy:x:103:106:systemd Bus Proxy,,,:/run/systemd:/bin/false
-Debian-exim:x:104:109::/var/spool/exim4:/bin/false
-messagebus:x:105:110::/var/run/dbus:/bin/false
-statd:x:106:65534::/var/lib/nfs:/bin/false
-bind:x:108:113::/var/cache/bind:/bin/false
 
 **SED**
 
