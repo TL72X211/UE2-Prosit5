@@ -212,13 +212,6 @@ Trouver une expression régulière permettant de reconnaître toutes les dates s
 Trouver une expression régulière permettant de reconnaître une @email :
 
 * root@emilien-LAMP:/# egrep --color '[[:alnum:]\._-]+@\w+.[a-z]{2,}' trace.txt
-couscous31@yahoo.fr
-praline44@joris.gouv
-david.trimoulet@viacesi.fr
-gilly-cousous@gilly.com
-gillllly_groscouscous@kfc.com
-
-
 
 **GREP**
 
