@@ -96,6 +96,8 @@ On les retrouves dans de nombreux langages comme du PHP, MySQL, Javascript...
 
 * En PHP, on retrouve la fonction preg_match qui prends deux paramètres, et renvois un booléen. Dans le premier paramètre, on y met notre regexp, et dans le second notre chaîne.
 
+* On peut \bmot\b =>pour obliger un mot (et non une lettre).
+
 ### **Commandes sed/grep :**
 
 https://doc.ubuntu-fr.org/sed
